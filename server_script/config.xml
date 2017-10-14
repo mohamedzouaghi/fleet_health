@@ -1,0 +1,10 @@
+<config>
+<client ip="192.168.1.90" port="22" username="zouaghi" password="stats" mail="azzouaghi@gmail.com">
+  <alert type="memory" limit="10%" />
+  <alert type="cpu" limit="10%" />
+</client>
+<client ip="192.168.1.91" port="22" username="zouaghi" password="stats" mail="azzouaghi@gmail.com">
+  <alert type="memory" limit="85%" />
+  <alert type="cpu" limit="5%" />
+</client>
+</config>
