@@ -1,9 +1,9 @@
 # Fleet Health
-(Author: Mohamed ZOUAGHI - mohamedzouaghi@gmail.com)  
+> Author: Mohamed ZOUAGHI - mohamedzouaghi@gmail.com  
 Simple python scripts that collect remote machines system stats (Example: CPU usage, memory usage etc...) and generate alerts when threshold are violated.
 The entire project is fully written in Python.
 
-1. Architecture
+## 1. Architecture
 There are 3 main scripts that are primarily hosted in the server instance and which fullfil the following roles:  
 - The “Collector”: This is the main script which runs from a cronjob configured in the server
 instance. This scripts reads configuration of the different machines (aka client instance)
@@ -46,19 +46,16 @@ connection credentials and their alerts threshold)
  - The directory encrypted_stats: Temporary directory where clients data wait to be
 decrypted and processed
  - The directory public_keys: Temporary directory which hosts the public_keys before
-being sent to clie
+being sent to clients.
 
 
 
-
-
-
-1. Instructions to install and configure prerequisites or dependencies
+## 2. Instructions to install and configure prerequisites or dependencies
 
 The project has been developed using python3 (3.5.3 to be more precise) and MySQL 5.9. Here after the list of libraries that need to be installed.  
-** Note:** Some of the following packages are probably already installed, if that's the case no need to reinstall them.
+**Note:** Some of the following packages are probably already installed, if that's the case no need to reinstall them.
 
-##Server machine - pckages and dependencies:
+### Server machine - pckages and dependencies:
 All used packages can be installed using pip (for instruction on how to install pi see: https://pip.pypa.io/en/stable/installing/#do-i-need-to-install-pip)
 
 * paramiko: (http://www.paramiko.org/installing.html)  
@@ -80,7 +77,7 @@ sudo pip install lxml
 
 
 
-##Client machines - Packages and dependencies:
+### Client machines - Packages and dependencies:
 * In most OS the sshd is not installed/activated by default, thus depending to the OS flavour
 SSH server should be installed. For Linux it can be done by installing openssh-server. For Ubuntu:
 sudo apt-get install openssh-server
@@ -89,12 +86,12 @@ For other distros checkout the openssh-server manuals.
 * psutil: (https://pythonhosted.org/psutil/)
 Used to pull system stats from cross platforms. Installation can be made by:
 sudo pip install psutil
-3
+
 * cryptography:  (https://cryptography.io/en/latest/)
 Used both by server and client to encrypt/# fleet_health to decrypt messages. Installation can be made by:  
 sudo pip install cryptography  
 
-1. Instructions to create and initialize the database  
+## 3. Instructions to create and initialize the database  
 
 - DB Instructions:  
 MySQL is the database which was chosen to run this project. The way to install MySQL differs according to the os. The guidelines can be found at https://dev.mysql.com/doc/refman/5.7/en/installing.html
@@ -104,7 +101,7 @@ The sql scripts that needs to be run can be found under Source/sql_script...
 - SMTP instructions:  
 Currently the code uses a testing SMTP account credentials with gmail SMTP service. It's highlly recomended to change the account. This can be easily done from the code in alerter.py.
 
-1. Assumptions
+## 4. Assumptions
 
 Here are the list of assumptions that were made:  
 
